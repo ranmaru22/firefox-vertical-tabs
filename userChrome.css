@@ -67,6 +67,7 @@
           border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-width,0px));
 
           padding-top: 0px !important;
+          margin-left: -80px; /* Removes the space left when hiding .titlebar-buttonbox-container */
       }
 
     :root {
@@ -81,7 +82,14 @@
     #TabsToolbar {
           visibility: collapse !important;
       }
-
+    /* Hide the Windows controls on the left side. */
+    #TabsToolbar .titlebar-buttonbox-container {
+          visibility: hidden !important;
+      }
+    /* Line up the Windows controls with the rest of the icons in the toolbar. */
+    .titlebar-buttonbox-container {
+          margin-top: 7px;
+      }
     :root:not([inFullscreen]) #nav-bar {
           margin-top: calc(0px - var(--uc-toolbar-height));
       }
