@@ -124,25 +124,60 @@ body:hover #pinnedtablist:not(.compact) .tab {
 }
 
 /* Move close button to left side */
-/*.tab-close {
+.tab-close {
     left: 0;
     margin-left: 3px;
-}*/
+}
 
 /* Fix title gradient */
-/*#tablist .tab:hover > .tab-title-wrapper {
+#tablist .tab:hover > .tab-title-wrapper {
     mask-image: linear-gradient(to left, transparent 0, black 2em);
-}*/
+}
 
 /* Move tab text to right when hovering to accomodate for the close button */
-/*#tablist .tab:hover > .tab-title-wrapper {
+#tablist .tab:hover > .tab-title-wrapper {
     margin-left: 28px;
     transition: all 0.2s ease;
-}*/
+}
 
 /* Move favicon to right when hovering to accomodate for the close button */
-/*#tablist .tab:hover > .tab-meta-image {
+#tablist .tab:hover > .tab-meta-image {
     padding-left: 25px;
     transition: all 0.2s ease;
-}*/
+}
+
+
+/*** Move container indicators to left ***/
+#tablist-wrapper {
+    margin-left: 0px;
+    padding-left: 6px;
+}
+#tablist {
+    margin-left: -6px;
+    padding-left: 6px;
+}
+.tab {
+    overflow: visible;
+}
+#tablist .tab[data-identity-color] .tab-context {
+    box-shadow: none !important;
+}
+#tablist .tab[data-identity-color] .tab-context::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: -6px;
+    bottom: 6px;
+    width: 3px;
+    border-radius: 0 5px 5px 0;
+    background: var(--identity-color);
+    transition: inset .1s;
+}
+#tablist .tab.active[data-identity-color] .tab-context::before {
+    top: 1px;
+    bottom: 1px;
+}
+
+
+
 
