@@ -29,6 +29,7 @@ I can't test this because I don't have a Windows computer, but if you find any b
   + Copy & Paste the contents of [[https://raw.githubusercontent.com/ranmaru22/firefox-vertical-tabs/main/userChrome.css][userChrome.css]] into your =userChrome.css= file.
 
 - Install the [[https://addons.mozilla.org/en-US/firefox/addon/tabcenter-reborn/][Tab Center Reborn]] extension.
+  + Make sure to enable "Allow this extension to run in Private windows" so you're not left stranded while browsing.
 - Go to =about:addons= in your URL bar, select /Tab Center Reborn/, go to /Preferences/ and set:
   + /Animations/: on.
   + /Use current browser theme/: on, if you want to use dark mode.
