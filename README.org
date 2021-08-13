@@ -16,7 +16,7 @@ It also plays nice with Container Tabs.
 [[./screenshots/light2.png]]
 
 ** Compatibility
-Compatible with Firefox 90.
+Compatible with Firefox 91.
 
 I have only tested this for Linux and macOS. There might be some bugs on Windows because the window decorations look different.
 I can't test this because I don't have a Windows computer, but if you find any bugs and know how to fix it, feel free to submit a PR.

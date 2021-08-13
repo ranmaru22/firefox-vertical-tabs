@@ -53,6 +53,7 @@
       }
 }
 
+
 /* Windows specific styles */
 @media (-moz-os-version: windows-win10) { 
     /* Hide main tabs toolbar */
@@ -67,6 +68,7 @@
           border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-width,0px));
 
           padding-top: 0px !important;
+          margin-left: -80px; /* Removes the space left when hiding .titlebar-buttonbox-container */
       }
 
     :root {
@@ -81,7 +83,14 @@
     #TabsToolbar {
           visibility: collapse !important;
       }
-
+    /* Hide the Windows controls on the left side. */
+    #TabsToolbar .titlebar-buttonbox-container {
+          visibility: hidden !important;
+      }
+    /* Line up the Windows controls with the rest of the icons in the toolbar. */
+    .titlebar-buttonbox-container {
+          margin-top: 7px;
+      }
     :root:not([inFullscreen]) #nav-bar {
           margin-top: calc(0px - var(--uc-toolbar-height));
       }
@@ -97,7 +106,7 @@
           background-color: var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor);
           background-clip: padding-box;
           border-right: 30px solid transparent;
-          border-image: linear-gradient(to left, transparent, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor) 30px) 20 / 30px
+          border-image: linear-gradient(to left, transparent, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor) 30px) 20 / 30px;
       }
 
     #toolbar-menubar:not([inactive]) {
@@ -110,11 +119,11 @@
           margin-left: var(--uc-window-drag-space-width,0px);
       }
 
-
     :root[inFullscreen] #nav-bar {
           border-inline: none !important;
       }
 }
+
 
 /* General styles */
 #browser {
@@ -140,18 +149,18 @@
 
 [sidebarcommand*="tabcenter"] #sidebar,
 #sidebar-box[sidebarcommand*="tabcenter"]:hover {
-    min-width: 20vw !important;
-    max-width: 20vw !important;
+    min-width: 10vw !important;
+    width: 30vw !important;
+    max-width: 200px !important;
+    z-index: 10 !important;
 }
 
 @media (width >= 1200px) {
     [sidebarcommand*="tabcenter"] #sidebar,
     #sidebar-box[sidebarcommand*="tabcenter"]:hover {
-        min-width: 10vw !important;
-        max-width: 10vw !important;
+        max-width: 250px !important;
     }
 }
-
 
 [sidebarcommand*="tabcenter"] ~ #sidebar-splitter {
     display: none;
@@ -161,7 +170,6 @@
     max-height: 100%;
     height: 100%;
 }
-
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
     margin-left: 48px;
