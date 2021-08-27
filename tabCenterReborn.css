@@ -84,6 +84,7 @@
 .tab.active {
     max-width: 36px;
     border-radius: 4px;
+    border-bottom: none !important;
     margin: 1px 0;
     transition: max-width 12s ease;
 }
