@@ -129,6 +129,11 @@
 #browser {
     position: relative;
 }
+
+#sidebar-box[sidebarcommand*="tabcenter"] {
+    z-index: 1;
+}
+
 #sidebar-box[sidebarcommand*="tabcenter"] #sidebar-header {
     visibility: collapse;
     display: none;
