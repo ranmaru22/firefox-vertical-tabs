@@ -81,6 +81,8 @@
     margin-right: 4px;
     margin-left: 2px;
     padding-left: 9px;
+    min-width: 80px;
+    width: 100%;
 }
 
 
