@@ -11,11 +11,12 @@ It also plays nice with Container Tabs.
 [[./screenshots/macos.png]]
 
 ** Compatibility
-Guarateed compatibility with Firefox 99. There has recently been in change in
-Firefox that requires the use of ~-moz-platform~ instead of ~-moz-os-version~ to
-use OS-specific CSS. This will work from 99.0b1 upwards but might not on older
-versions, so be aware of that. If you run an older version of Firefox and have
-an issue, change this back.
+*Guarateed compatibility with Firefox 103.*
+
+There has recently been in change in Firefox that requires the use of
+~-moz-platform~ instead of ~-moz-os-version~ to use OS-specific CSS. This will work
+from 99.0b1 upwards but might not on older versions, so be aware of that. If you
+run an older version of Firefox and have an issue, change this back.
 
 (Also, since the only OS-specific CSS in the file targets Windows, it should not
 affect you on Mac or Linux either way.)
