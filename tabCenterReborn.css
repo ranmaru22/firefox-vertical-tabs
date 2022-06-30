@@ -52,6 +52,10 @@
     margin-left: auto;
 }
 
+#settings-icon {
+    visibility: hidden;
+}
+
 #tablist-wrapper {
     height: auto;
     margin: 0 6px;
@@ -99,7 +103,8 @@
 }
 
 /* Show more when hovering over the sidebar */
-body:hover #tablist-wrapper .tab-title-wrapper {
+body:hover #tablist-wrapper .tab-title-wrapper,
+body:hover #settings-icon {
     visibility: visible;
 }
 
@@ -107,8 +112,6 @@ body #newtab::after {
     content: "New tab";
     visibility: hidden;
     margin-left: 10px;
-    transition: all 0.2s ease;
-    transition-delay: 200ms;
 }
 
 body:hover #newtab::after {

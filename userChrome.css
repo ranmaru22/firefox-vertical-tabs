@@ -145,6 +145,11 @@
     display: none;
 }
 
+[sidebarcommand*="tabcenter"] #sidebar {
+    min-width: 48px !important;
+    max-width: 48px !important;
+}
+
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
     display: block;
     position: absolute;
@@ -158,7 +163,7 @@
     bottom: 0;
 }
 
-[sidebarcommand*="tabcenter"] #sidebar,
+[sidebarcommand*="tabcenter"] #sidebar:hover,
 #sidebar-box[sidebarcommand*="tabcenter"]:hover {
     min-width: 10vw !important;
     width: 30vw !important;
@@ -167,7 +172,7 @@
 }
 
 @media (width >= 1200px) {
-    [sidebarcommand*="tabcenter"] #sidebar,
+    [sidebarcommand*="tabcenter"] #sidebar:hover,
     #sidebar-box[sidebarcommand*="tabcenter"]:hover {
         max-width: 250px !important;
     }
