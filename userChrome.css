@@ -58,7 +58,7 @@
 @media (-moz-platform: windows-win10) {
     /* Hide main tabs toolbar */
     :root[tabsintitlebar]{
-        --uc-window-control-width: 138px; /* Space at the right of nav-bar for window controls */
+        --uc-window-control-width: 105px; /* Space at the right of nav-bar for window controls */
         /* --uc-window-drag-space-width: 24px; */  /* To add extra window drag space in nav-bar */
     }
 
@@ -90,17 +90,30 @@
     }
     /* Line up the Windows controls with the rest of the icons in the toolbar. */
     .titlebar-buttonbox-container {
-        margin-top: 7px;
-    }
+        margin-top: 3px;
+        }
+    
 
     :root:not([inFullscreen]) #nav-bar {
         margin-top: calc(0px - var(--uc-toolbar-height));
+        z-index: 2;
     }
 
     #toolbar-menubar {
         min-height: unset !important;
         height: var(--uc-toolbar-height) !important;
         position: relative;
+    }
+
+    .titlebar-buttonbox {
+        z-index:3 !important;
+        padding-right:3px;
+    }
+
+    .titlebar-buttonbox * {
+        border-radius: 5px;
+        width:35px;
+        height:38px;
     }
 
     #main-menubar {
