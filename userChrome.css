@@ -1,3 +1,8 @@
+:root {
+    /* delay before expanding tabs, set to '0' for no delay */
+    --delay: 0.5s;
+}
+
 /* Linux & macOS specific styles */
 @media (-moz-gtk-csd-available), (-moz-mac-big-sur-theme: 0), (-moz-mac-big-sur-theme: 1) {
     #TabsToolbar:not([customizing="true"]) {
@@ -169,7 +174,6 @@
     min-width: 48px;
     max-width: 48px;
     overflow: hidden;
-    transition: all 0.2s ease;
     border-right: 1px solid var(--sidebar-border-color);
     z-index: 1;
     top: 0;
@@ -182,6 +186,13 @@
     width: 30vw !important;
     max-width: 200px !important;
     z-index: 10 !important;
+    transition: all 0.2s ease var(--delay);
+}
+
+/* used for delay function */
+[sidebarcommand*="tabcenter"] #sidebar:not(:hover),
+#sidebar-box[sidebarcommand*="tabcenter"]:not(:hover) {
+    transition: all 0.2s ease 0s;
 }
 
 @media (width >= 1200px) {
