@@ -70,8 +70,11 @@
     max-width: 34px;
     margin: 2px 0;
     border: 1px solid var(--tablist-separator);
-    transition: all 0.2s ease;
-    transition-delay: 200ms;
+    transition: all 0.2s ease var(--delay);
+}
+
+body:not(:hover) #tablist-wrapper::after {
+    transition: all 0.2s ease 0s;
 }
 
 #tablist-wrapper .tab-title-wrapper {
