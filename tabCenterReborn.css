@@ -3,8 +3,6 @@
     --tab-separator: transparent;
     --tab-selected-line: transparent;
     --tablist-separator: #cccccc;
-    /* delay before expanding tabs, set to '0' for no delay */
-    --delay: 0.5s;
     /* fix scrolling bug when collapsed */
     overflow: hidden;
 }
@@ -56,31 +54,23 @@
     margin-left: auto;
 }
 
-#settings-icon {
-    visibility: hidden;
-}
-
 #tablist-wrapper {
     height: auto;
-    margin: 0 6px;
+    margin-inline: 6px;
+    /* adds margin above tabs to make the spacing even */
+    margin-top: 5px;
+}
+
+/* fix glitch with spacing in-between pinned tabs */
+#pinnedtablist:not(.compact) {
+    display: flex;
+    flex-direction: column;
 }
 
 #tablist-wrapper::after {
     content: "";
-    max-width: 34px;
     margin: 2px 0;
     border: 1px solid var(--tablist-separator);
-    transition: all 0.2s ease var(--delay);
-}
-
-body:not(:hover) #tablist-wrapper::after {
-    transition: all 0.2s ease 0s;
-}
-
-#tablist-wrapper .tab-title-wrapper {
-    visibility: hidden;
-    transition: all 0.2s ease;
-    transition-delay: 200ms;
 }
 
 #newtab {
@@ -95,11 +85,9 @@ body:not(:hover) #tablist-wrapper::after {
 
 .tab,
 .tab.active {
-    max-width: 36px;
     border-radius: 4px;
     border-bottom: none !important;
     margin: 1px 0;
-    transition: max-width 12s ease;
 }
 
 #pinnedtablist:not(.compact) .tab,
@@ -107,63 +95,43 @@ body:not(:hover) #tablist-wrapper::after {
     padding: 0;
 }
 
-#pinnedtablist:not(.compact) .tab {
-    padding-left: 6px;
-}
-
-/* Show more when hovering over the sidebar */
-body:hover #tablist-wrapper .tab-title-wrapper,
-body:hover #settings-icon {
-    visibility: visible;
-}
-
-body #newtab::after {
+#newtab::after {
     content: "New tab";
-    visibility: collapse;
     margin-left: 10px;
     white-space: nowrap;
     overflow: hidden;
-}
-
-body:hover #newtab::after {
-    visibility: visible;
 }
 
 #newtab-icon {
     min-width: 16px;
 }
 
-body:hover #tablist-wrapper::after,
-body:hover .tab {
-    max-width: 100%;
+
+/* the @media rule only allows these settings apply when the sidebar is expanded */
+@media (min-width: 49px) {
+    /* Move close button to left side */
+    /*.tab-close {
+        left: 0;
+        margin-left: 3px;
+    }*/
+
+    /* Fix title gradient */
+    /*#tablist .tab:hover > .tab-title-wrapper {
+        mask-image: linear-gradient(to left, transparent 0, black 2em);
+    }*/
+
+    /* Move tab text to right when hovering to accomodate for the close button */
+    /*#tablist .tab:hover > .tab-title-wrapper {
+        margin-left: 28px;
+        transition: all 0.2s ease;
+    }*/
+
+    /* Move favicon to right when hovering to accomodate for the close button */
+    /*#tablist .tab:hover > .tab-meta-image {
+        padding-left: 25px;
+        transition: all 0.2s ease;
+    }*/
 }
-
-body:hover #pinnedtablist:not(.compact) .tab {
-    padding-left: 0;
-}
-
-/* Move close button to left side */
-/*.tab-close {
-    left: 0;
-    margin-left: 3px;
-}*/
-
-/* Fix title gradient */
-/*#tablist .tab:hover > .tab-title-wrapper {
-    mask-image: linear-gradient(to left, transparent 0, black 2em);
-}*/
-
-/* Move tab text to right when hovering to accomodate for the close button */
-/*#tablist .tab:hover > .tab-title-wrapper {
-    margin-left: 28px;
-    transition: all 0.2s ease;
-}*/
-
-/* Move favicon to right when hovering to accomodate for the close button */
-/*#tablist .tab:hover > .tab-meta-image {
-    padding-left: 25px;
-    transition: all 0.2s ease;
-}*/
 
 
 /*** Move container indicators to left ***/
@@ -171,17 +139,20 @@ body:hover #pinnedtablist:not(.compact) .tab {
     margin-left: 0px;
     padding-left: 6px;
 }
-#tablist {
+#tablist,
+#pinnedtablist:not(.compact) {
     margin-left: -6px;
     padding-left: 6px;
 }
 .tab {
     overflow: visible;
 }
-#tablist .tab[data-identity-color] .tab-context {
+#tablist .tab[data-identity-color] .tab-context,
+#pinnedtablist:not(.compact) .tab[data-identity-color] .tab-context {
     box-shadow: none !important;
 }
-#tablist .tab[data-identity-color] .tab-context::before {
+#tablist .tab[data-identity-color] .tab-context::before,
+#pinnedtablist:not(.compact) .tab[data-identity-color] .tab-context::before {
     content: "";
     position: absolute;
     top: 6px;
@@ -192,26 +163,35 @@ body:hover #pinnedtablist:not(.compact) .tab {
     background: var(--identity-color);
     transition: inset .1s;
 }
-#tablist .tab.active[data-identity-color] .tab-context::before {
+#tablist .tab.active[data-identity-color] .tab-context::before,
+#pinnedtablist:not(.compact) .tab.active[data-identity-color] .tab-context::before {
     top: 1px;
     bottom: 1px;
 }
 
-/* used for delay function */
-body:not(:hover) .tab-close {
-    visibility: collapse !important;
+/* center favicons within the tab */
+#tablist-wrapper.shrinked>:not(#pinnedtablist.compact) .tab-meta-image {
+    margin-left: 6px !important;
 }
 
-#settings-icon,
-#newtab::after,
-#tablist-wrapper .tab-title-wrapper,
-.tab-close {
-    transition: visibility 0s linear var(--delay);
+/* hide certain items when collapsed */
+@media (max-width: 64px) {
+    /* using 64px minimum width to give the tab favicons more room during the transition */
+    .tab-close,
+    .tab-pin {
+        visibility: collapse !important;
+    }
+
+    /* hide scrollbar when sidebar is collapsed */
+    #tablist {
+        scrollbar-width: none;
+    }
 }
 
-body:not(:hover) #settings-icon,
-body:not(:hover) #newtab::after,
-body:not(:hover) #tablist-wrapper .tab-title-wrapper,
-body:not(:hover) .tab-close {
-    transition: visibility 0s linear 0s;
+@media (max-width: 48px) {
+    #settings-icon,
+    #tablist-wrapper .tab-title-wrapper,
+    #newtab::after {
+        visibility: hidden !important;
+    }
 }

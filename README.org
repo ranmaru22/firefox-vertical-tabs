@@ -37,7 +37,7 @@ free to submit a PR.
 - If there is no ~chrome~ folder, create it.
 - Create a file called ~userChrome.css~ inside the ~chrome~ folder.
 - Copy and paste the contents of ~userChrome.css~ into your file (or symlink it).
-- OPTIONAL: Adjust ~--delay~ setting in the ~userChrome.css~ and ~tabCenterReborn.css~ files.
+- OPTIONAL: Adjust ~--delay~ setting in the ~userChrome.css~ file.
 - Install the [[https://addons.mozilla.org/en-US/firefox/addon/tabcenter-reborn/][Tab Center Reborn]] extension.
 - Make sure to enable /"Allow this extension to run in Private windows"/ so you're
   not left stranded while browsing.
