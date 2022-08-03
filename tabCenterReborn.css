@@ -3,6 +3,10 @@
     --tab-separator: transparent;
     --tab-selected-line: transparent;
     --tablist-separator: #cccccc;
+    /* delay before expanding tabs, set to '0' for no delay */
+    --delay: 0.5s;
+    /* fix scrolling bug when collapsed */
+    overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -66,8 +70,11 @@
     max-width: 34px;
     margin: 2px 0;
     border: 1px solid var(--tablist-separator);
-    transition: all 0.2s ease;
-    transition-delay: 200ms;
+    transition: all 0.2s ease var(--delay);
+}
+
+body:not(:hover) #tablist-wrapper::after {
+    transition: all 0.2s ease 0s;
 }
 
 #tablist-wrapper .tab-title-wrapper {
@@ -81,7 +88,7 @@
     margin-right: 4px;
     margin-left: 2px;
     padding-left: 9px;
-    min-width: 80px;
+    min-width: 36px;
     width: 100%;
 }
 
@@ -112,12 +119,18 @@ body:hover #settings-icon {
 
 body #newtab::after {
     content: "New tab";
-    visibility: hidden;
+    visibility: collapse;
     margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 body:hover #newtab::after {
     visibility: visible;
+}
+
+#newtab-icon {
+    min-width: 16px;
 }
 
 body:hover #tablist-wrapper::after,
@@ -182,4 +195,23 @@ body:hover #pinnedtablist:not(.compact) .tab {
 #tablist .tab.active[data-identity-color] .tab-context::before {
     top: 1px;
     bottom: 1px;
+}
+
+/* used for delay function */
+body:not(:hover) .tab-close {
+    visibility: collapse !important;
+}
+
+#settings-icon,
+#newtab::after,
+#tablist-wrapper .tab-title-wrapper,
+.tab-close {
+    transition: visibility 0s linear var(--delay);
+}
+
+body:not(:hover) #settings-icon,
+body:not(:hover) #newtab::after,
+body:not(:hover) #tablist-wrapper .tab-title-wrapper,
+body:not(:hover) .tab-close {
+    transition: visibility 0s linear 0s;
 }
