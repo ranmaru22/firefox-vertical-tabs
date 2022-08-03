@@ -1,6 +1,7 @@
 :root {
     /* delay before expanding tabs, set to '0' for no delay */
     --delay: 0.5s;
+    --transition-time: 0.2s;
 }
 
 /* Linux & macOS specific styles */
@@ -171,6 +172,7 @@
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
     display: block;
     position: absolute;
+    box-sizing: content-box;
     min-width: 48px;
     max-width: 48px;
     overflow: hidden;
@@ -180,23 +182,23 @@
     bottom: 0;
 }
 
-[sidebarcommand*="tabcenter"] #sidebar:hover,
+#sidebar-box[sidebarcommand*="tabcenter"]:hover #sidebar,
 #sidebar-box[sidebarcommand*="tabcenter"]:hover {
     min-width: 10vw !important;
     width: 30vw !important;
     max-width: 200px !important;
     z-index: 10 !important;
-    transition: all 0.2s ease var(--delay);
+    transition: all var(--transition-time) ease var(--delay);
 }
 
 /* used for delay function */
-[sidebarcommand*="tabcenter"] #sidebar:not(:hover),
+#sidebar-box[sidebarcommand*="tabcenter"]:not(:hover) #sidebar,
 #sidebar-box[sidebarcommand*="tabcenter"]:not(:hover) {
-    transition: all 0.2s ease 0s;
+    transition: all var(--transition-time) ease 0s;
 }
 
 @media (width >= 1200px) {
-    [sidebarcommand*="tabcenter"] #sidebar:hover,
+    #sidebar-box[sidebarcommand*="tabcenter"]:hover #sidebar,
     #sidebar-box[sidebarcommand*="tabcenter"]:hover {
         max-width: 250px !important;
     }
