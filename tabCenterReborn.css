@@ -191,7 +191,8 @@
 @media (max-width: 48px) {
     #settings-icon,
     #tablist-wrapper .tab-title-wrapper,
-    #newtab::after {
+    #newtab::after,
+    #settings {
         visibility: hidden !important;
     }
 }
