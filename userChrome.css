@@ -156,8 +156,8 @@
     /* Line up the Windows controls with the rest of the icons in the toolbar. */
     .titlebar-buttonbox-container {
         margin-top: 3px;
-        }
-    
+    }
+
 
     :root:not([inFullscreen]) #nav-bar {
         margin-top: calc(0px - var(--uc-toolbar-height));
@@ -212,6 +212,10 @@
 
 #nav-bar, #urlbar {
     z-index: 100;
+}
+
+#sidebar-box:not([lwt-sidebar]){
+    appearance: unset !important;
 }
 
 #sidebar-box[sidebarcommand*="tabcenter"] {
