@@ -4,61 +4,120 @@
     --transition-time: 0.2s;
 }
 
-/* Linux & macOS specific styles */
-@media (-moz-gtk-csd-available), (-moz-mac-big-sur-theme: 0), (-moz-mac-big-sur-theme: 1) {
+/* macOS specific styles */
+@media (-moz-platform: macos) {
     #TabsToolbar:not([customizing="true"]) {
         visibility: collapse !important;
     }
 
-    #toolbar-menubar {
-        padding-top: 0px !important;
-    }
-
-    #TabsToolbar:not([customizing="true"]) {
-        visibility: collapse !important;
-    }
-
-    #toolbar-menubar {
-        padding-top: 0px !important;
-    }
-
-    #nav-bar {
+    :root:not([customizing="true"]) #nav-bar {
         padding-left: 80px;
     }
 
-    #TabsToolbar .titlebar-buttonbox-container {
+    :root:not([customizing="true"]) #TabsToolbar .titlebar-buttonbox-container {
         visibility: visible !important;
         position: absolute;
         top: 12px;
         left: 0px;
-    }
-
-    .titlebar-buttonbox-container {
         display: block;
-    }
-
-    .titlebar-button > .toolbarbutton-icon {
-        height: 13x !important;
-        min-height: 13px !important;
-        width: 13px !important;
-        min-width: 13px !important;
-    }
-
-    .titlebar-button {
-        padding-left: 6px !important;
-        padding-right: 6px !important;
-        padding-top: 6px !important;
-    }
-
-    .titlebar-placeholder[type="pre-tabs"] {
-        width: 120px !important;
-    }
-
-    .titlebar-buttonbox-container {
-        -moz-box-ordinal-group: 0;
     }
 }
 
+/* Linux/GTK specific styles */
+@media (-moz-gtk-csd-available) {
+    #TabsToolbar:not([customizing="true"]) {
+        visibility: collapse !important;
+    }
+
+    #toolbar-menubar {
+        padding-top: 0px !important;
+    }
+
+    :root:not([customizing="true"]) #toolbar-menubar[inactive]+#TabsToolbar .titlebar-buttonbox-container {
+        visibility: visible !important;
+        position: absolute;
+        top: var(--uc-win-ctrl-vertical-offset);
+        display: block;
+        z-index: 101;
+    }
+
+    /* enable rounded top corners */
+    :root[tabsintitlebar][sizemode="normal"]:not([gtktiledwindow="true"]):not([customizing="true"]) #nav-bar {
+        border-top-left-radius: env(-moz-gtk-csd-titlebar-radius);
+        border-top-right-radius: env(-moz-gtk-csd-titlebar-radius);
+    }
+
+    /* window control padding values (these don't change the size of the actual buttons, only the padding for the navbar) */
+    :root[tabsintitlebar]:not([customizing="true"]) {
+        /* default button/padding size based on adw-gtk3 theme */
+        --uc-win-ctrl-btn-width: 38px;
+        --uc-win-ctrl-padding: 12px;
+        /* vertical offset from the top of the window, calculation: (1/2 * (NAVBAR_HEIGHT - BUTTON_HEIGHT)) */
+        --uc-win-ctrl-vertical-offset: 8px;
+        /* extra window drag space */
+        --uc-win-ctrl-drag-space: 20px;
+    }
+
+    :root[tabsintitlebar][lwtheme]:not([customizing="true"]) {
+        /* seperate values for when using a theme, based on the Firefox defaults */
+        --uc-win-ctrl-btn-width: 30px;
+        --uc-win-ctrl-padding: 12px;
+        /* vertical offset from the top of the window, calculation: (1/2 * (NAVBAR_HEIGHT - BUTTON_HEIGHT)) */
+        --uc-win-ctrl-vertical-offset: 5px;
+        /* extra window drag space */
+        --uc-win-ctrl-drag-space: 20px;
+    }
+
+    /* setting the padding value for all button combinations */
+    @media (-moz-gtk-csd-minimize-button),
+    (-moz-gtk-csd-maximize-button),
+    (-moz-gtk-csd-close-button) {
+        #nav-bar {
+            --uc-navbar-padding: calc(var(--uc-win-ctrl-btn-width) * 1);
+        }
+    }
+
+    @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
+    (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
+    (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+        #nav-bar {
+            --uc-navbar-padding: calc(var(--uc-win-ctrl-btn-width) * 2);
+        }
+    }
+
+    @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+        #nav-bar {
+            --uc-navbar-padding: calc(var(--uc-win-ctrl-btn-width) * 3);
+        }
+    }
+
+    /* only applies padding/positioning if there is 1 or more buttons */
+    @media (-moz-gtk-csd-minimize-button),
+    (-moz-gtk-csd-maximize-button),
+    (-moz-gtk-csd-close-button) {
+        /* window controls on the right */
+        @media not (-moz-gtk-csd-reversed-placement) {
+            #nav-bar {
+                padding-inline: 0 calc(var(--uc-navbar-padding, 0) + var(--uc-win-ctrl-padding) + var(--uc-win-ctrl-drag-space)) !important;
+            }
+
+            .titlebar-buttonbox-container {
+                right: 0;
+            }
+        }
+
+        /* window controls on the left */
+        @media (-moz-gtk-csd-reversed-placement) {
+            #nav-bar {
+                padding-inline: calc(var(--uc-navbar-padding, 0) + var(--uc-win-ctrl-padding) + var(--uc-win-ctrl-drag-space)) 0 !important;
+            }
+
+            .titlebar-buttonbox-container {
+                left: 0;
+            }
+        }
+    }
+}
 
 /* Windows specific styles */
 @media (-moz-platform: windows-win10) {
