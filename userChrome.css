@@ -5,11 +5,11 @@
 }
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
-    margin-left: 0px; /* '48px' for left sidebar */
+    margin-left: 48px; /* '0px' for right sidebar */
 }
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
-    position: none; /* 'absolute' for left sidebar */
+    position: absolute; /* 'none' for right sidebar */
 }
 
 /* macOS specific styles */
