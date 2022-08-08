@@ -4,6 +4,14 @@
     --transition-time: 0.2s;
 }
 
+#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
+    margin-left: 0px; /* '48px' for left sidebar */
+}
+
+#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
+    position: none; /* 'absolute' for left sidebar */
+}
+
 /* macOS specific styles */
 @media (-moz-platform: macos) {
     #TabsToolbar:not([customizing="true"]) {
@@ -123,12 +131,12 @@
 @media (-moz-platform: windows-win10) {
     /* Hide main tabs toolbar */
     :root[tabsintitlebar]{
-        --uc-window-control-width: 105px; /* Space at the right of nav-bar for window controls */
+        --uc-window-control-width: 137px; /* Space at the right of nav-bar for window controls */
         /* --uc-window-drag-space-width: 24px; */  /* To add extra window drag space in nav-bar */
     }
 
     #nav-bar{
-        border-inline: var(--uc-window-drag-space-width,0px) solid var(--toolbar-bgcolor) ;
+        border-inline: var(--uc-window-drag-space-width,80px) solid var(--toolbar-bgcolor) ;
         border-inline-style: solid !important;
         border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-width,0px));
 
@@ -234,7 +242,6 @@
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
     display: block;
-    position: absolute;
     box-sizing: content-box;
     min-width: 48px;
     max-width: 48px;
@@ -274,10 +281,6 @@
 [sidebarcommand*="tabcenter"] #sidebar {
     max-height: 100%;
     height: 100%;
-}
-
-#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
-    margin-left: 48px;
 }
 
 #main-window[inFullscreen][inDOMFullscreen] #appcontent {
