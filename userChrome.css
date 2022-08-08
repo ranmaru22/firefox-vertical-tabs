@@ -2,14 +2,8 @@
     /* delay before expanding tabs, set to '0' for no delay */
     --delay: 0.5s;
     --transition-time: 0.2s;
-}
-
-#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
-    margin-left: 48px; /* '0px' for right, '48px' for left sidebar */
-}
-
-#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
-    position: absolute; /* 'none' for right, 'absolute' for left sidebar */
+    --positionX1: 0px; /* '48px' for left, '0px' for right sidebar */
+    --positionX2: none; /* 'absolute' for left, 'none' for right sidebar */
 }
 
 /* macOS specific styles */
@@ -242,6 +236,7 @@
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
     display: block;
+    position: var(--positionX2);
     box-sizing: content-box;
     min-width: 48px;
     max-width: 48px;
@@ -281,6 +276,10 @@
 [sidebarcommand*="tabcenter"] #sidebar {
     max-height: 100%;
     height: 100%;
+}
+
+#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
+    margin-left: var(-positionX1);
 }
 
 #main-window[inFullscreen][inDOMFullscreen] #appcontent {
