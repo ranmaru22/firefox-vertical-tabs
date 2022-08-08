@@ -123,12 +123,12 @@
 @media (-moz-platform: windows-win10) {
     /* Hide main tabs toolbar */
     :root[tabsintitlebar]{
-        --uc-window-control-width: 105px; /* Space at the right of nav-bar for window controls */
+        --uc-window-control-width: 137px; /* Space at the right of nav-bar for window controls */
         /* --uc-window-drag-space-width: 24px; */  /* To add extra window drag space in nav-bar */
     }
 
     #nav-bar{
-        border-inline: var(--uc-window-drag-space-width,0px) solid var(--toolbar-bgcolor) ;
+        border-inline: var(--uc-window-drag-space-width,80px) solid var(--toolbar-bgcolor) ;
         border-inline-style: solid !important;
         border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-width,0px));
 
