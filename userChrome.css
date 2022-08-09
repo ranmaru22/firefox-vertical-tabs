@@ -2,6 +2,8 @@
     /* delay before expanding tabs, set to '0' for no delay */
     --delay: 0.5s;
     --transition-time: 0.2s;
+    --positionX1: 48px; /* '48px' for left, '0px' for right sidebar */
+    --positionX2: absolute; /* 'absolute' for left, 'none' for right sidebar */
 }
 
 /* macOS specific styles */
@@ -234,7 +236,7 @@
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
     display: block;
-    position: absolute;
+    position: var(--positionX2);
     box-sizing: content-box;
     min-width: 48px;
     max-width: 48px;
@@ -277,7 +279,7 @@
 }
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
-    margin-left: 48px;
+    margin-left: var(-positionX1);
 }
 
 #main-window[inFullscreen][inDOMFullscreen] #appcontent {
