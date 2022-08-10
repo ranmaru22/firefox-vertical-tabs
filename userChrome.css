@@ -279,7 +279,7 @@
 }
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
-    margin-left: var(-positionX1);
+    margin-left: var(--positionX1);
 }
 
 #main-window[inFullscreen][inDOMFullscreen] #appcontent {
