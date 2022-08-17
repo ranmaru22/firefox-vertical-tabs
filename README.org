@@ -11,7 +11,7 @@ It also plays nice with Container Tabs.
 [[./screenshots/macos.png]]
 
 ** Compatibility
-*Guarateed compatibility with Firefox 103.*
+*Guarateed compatibility with Firefox 104.*
 
 There has recently been in change in Firefox that requires the use of
 ~-moz-platform~ instead of ~-moz-os-version~ to use OS-specific CSS. This will work
@@ -51,3 +51,11 @@ free to submit a PR.
   - Activate *Custom Stylesheet* and paste the contents of ~tabCenterReborn.css~
     into the text area below, and click /"Save CSS"/ under the text box.
 - Restart Firefox.
+
+** Things to note
+- If the sidebar does not show up, you can press =Shitft-F1= to show the Tab
+  Center Reborn sidebar directy, or =Cmd-B= / =Ctrl-B= to toggle the sidebar in
+  general.
+- In Fullscreen mode, the sidebar will collapse to a 1px wide border instead to
+  be as unintrusive as possible. You can expand it by pushing your cursor all
+  the way to the edge of the screen.
