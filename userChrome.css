@@ -12,7 +12,7 @@
         visibility: collapse !important;
     }
 
-    :root:not([customizing="true"]) #nav-bar {
+    :root:not([customizing="true"]) #nav-bar:not([inFullscreen]) {
         padding-left: 80px;
     }
 
@@ -247,6 +247,11 @@
     bottom: 0;
 }
 
+#main-window[inFullscreen] #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
+    min-width: 1px;
+    max-width: 1px;
+}
+
 #sidebar-box[sidebarcommand*="tabcenter"]:hover #sidebar,
 #sidebar-box[sidebarcommand*="tabcenter"]:hover {
     min-width: 10vw !important;
@@ -278,7 +283,7 @@
     height: 100%;
 }
 
-#sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
+#main-window:not([inFullscreen]) #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
     margin-left: var(--positionX1);
 }
 
