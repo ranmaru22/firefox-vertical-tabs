@@ -172,7 +172,7 @@
         position: relative;
     }
 
-    /* For a rounded button design, remove two comments in .titlebar-buttonbox. */
+    /* For a rounded button design, uncomment both lines in .titlebar-buttonbox. */
     .titlebar-buttonbox {
         z-index:3 !important;
         /* padding-right:3px; */
