@@ -135,6 +135,7 @@
         border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-width,0px));
 
         padding-top: .5px !important; /* This makes it possible to drag the maximized window. */
+	padding-bottom: .5px !important; 
         margin-left: -80px; /* Removes the space left when hiding .titlebar-buttonbox-container */
     }
     
