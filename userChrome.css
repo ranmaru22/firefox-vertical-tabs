@@ -142,9 +142,29 @@
         border-inline-style: solid !important;
         border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-width,0px));
 
-        padding-top: 0px !important;
+        padding-top: .5px !important; /* This makes it possible to drag the maximized window. */
         margin-left: -80px; /* Removes the space left when hiding .titlebar-buttonbox-container */
     }
+    
+    #back-button { 
+		margin-top: -.5px !important; 
+	}
+	
+	#forward-button { 
+		margin-top: -.5px !important; 
+	}
+	
+	#reload-button { 
+		margin-top: -.5px !important; 
+	}
+    
+	#PanelUI-button {
+		margin-top: -.5px !important; 
+	}
+    
+	#nav-bar-overflow-button{
+		margin-top: -.5px !important; 
+	}
 
     :root {
         --uc-toolbar-height: 32px;
