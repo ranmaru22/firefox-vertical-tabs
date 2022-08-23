@@ -119,6 +119,14 @@
             }
         }
     }
+    
+    /* Hide window buttons in fullscreen */
+    #navigator-toolbox[style*="margin-top: -"] .titlebar-buttonbox-container,
+    [inDOMFullscreen="true"] .titlebar-buttonbox-container {
+        transform: translateY(-100px)
+    }
+    
+    
 }
 
 /* Windows specific styles */
