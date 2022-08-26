@@ -196,3 +196,53 @@
         visibility: hidden !important;
     }
 }
+
+
+/*** Better support for non-compact mode ***/
+#tablist-wrapper:not(.shrinked) .tab-meta-image {
+    display: flex;
+    align-items: center;
+
+    width: 58px;
+    border: 0 !important;
+    margin-right: 4px;
+    border-radius: inherit;
+    background-position: center;
+    min-width: 0px !important;
+    background-color: var(--toolbar-background) !important;
+    transition: margin .4s;
+}
+#tablist-wrapper:not(.shrinked) .tab-icon-wrapper {
+    transition: margin .1s;
+    z-index: 2;
+}
+#tablist-wrapper:not(.shrinked) .tab-icon-overlay {
+    top: unset !important;
+    bottom: 8px;
+    left: 25px !important;
+    z-index: 4;
+    transition: inset .1s;
+}
+
+/* If you want to disable the website previews,
+comment out the @media line below and its closing bracket */
+@media (max-width: 49px) {
+    #tablist-wrapper:not(.shrinked) .tab-meta-image {
+        background-color: inherit !important;
+        border-width: 0 !important;
+        box-shadow: none !important;
+        height: 0 !important;
+        width: 26px;
+        margin-right: 0px;
+    }
+    #tablist-wrapper:not(.shrinked) .tab-icon-wrapper {
+        background-color: transparent !important;
+        margin-top: 0 !important;
+        margin-left: 3px !important;
+        box-shadow: none !important;
+    }
+    #tablist-wrapper:not(.shrinked) .tab-icon-overlay {
+        bottom: 12px;
+        left: 16px !important;
+    }
+}
