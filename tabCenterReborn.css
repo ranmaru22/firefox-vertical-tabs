@@ -202,6 +202,7 @@
 #tablist-wrapper:not(.shrinked) .tab-meta-image {
     display: flex;
     align-items: center;
+
     width: 58px;
     border: 0 !important;
     margin-right: 4px;
@@ -214,6 +215,13 @@
 #tablist-wrapper:not(.shrinked) .tab-icon-wrapper {
     transition: margin .1s;
     z-index: 2;
+}
+#tablist-wrapper:not(.shrinked) .tab-icon-overlay {
+    top: unset !important;
+    bottom: 8px;
+    left: 25px !important;
+    z-index: 4;
+    transition: inset .1s;
 }
 
 /* If you want to disable the website previews,
@@ -232,5 +240,9 @@ comment out the @media line below and its closing bracket */
         margin-top: 0 !important;
         margin-left: 3px !important;
         box-shadow: none !important;
+    }
+    #tablist-wrapper:not(.shrinked) .tab-icon-overlay {
+        bottom: 12px;
+        left: 16px !important;
     }
 }
