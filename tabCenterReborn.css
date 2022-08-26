@@ -43,15 +43,11 @@
     margin-right: 2px;
 }
 
-/* Hide filterbox */
+/* Hide filterbox & settings icon */
 #filterbox-icon,
-#filterbox-input {
-    display: none;
-}
-
-/* Right-align settings icon */
+#filterbox-input,
 #settings {
-    margin-left: auto;
+    display: none;
 }
 
 #tablist-wrapper {
@@ -75,13 +71,12 @@
 
 #newtab {
     flex-grow: 1;
-    margin-right: 4px;
+    margin-right: 2px;
     margin-left: 2px;
     padding-left: 9px;
     min-width: 36px;
     width: 100%;
 }
-
 
 .tab,
 .tab.active {
