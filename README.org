@@ -45,11 +45,11 @@ free to submit a PR.
   *Preferences* and set:
   - *Animations*: on.
   - *Use current browser theme*: on, if you want to use dark mode.
-  - *Compact Mode*: either /"Dynamic"/ or /"Enabled"/. It works with /"Disabled"/ too
+  - *Compact Mode*: either "Dynamic" or "Enabled". It works with "Disabled" too
     but looks nicer with only favicons.
   - *Favicon-only pinned tabs*: off.
   - Activate *Custom Stylesheet* and paste the contents of ~tabCenterReborn.css~
-    into the text area below, and click /"Save CSS"/ under the text box.
+    into the text area below, and click "Save CSS" under the text box.
 - Restart Firefox.
 
 ** Things to note
@@ -59,3 +59,7 @@ free to submit a PR.
 - In Fullscreen mode, the sidebar will collapse to a 1px wide border instead to
   be as unintrusive as possible. You can expand it by pushing your cursor all
   the way to the edge of the screen.
+- In the sidebar, you can open a new tab by double clicking or middle-clicking
+  into empty space. There is currently a bug that prevents middle-clicking to
+  work when you have Firefox's "autoscrolling" feature enabled (you can find it
+  in the preferences in the "Browsing" section).
