@@ -3,8 +3,6 @@
     --tab-separator: transparent;
     --tab-selected-line: transparent;
     --tablist-separator: #cccccc;
-    /* fix scrolling bug when collapsed */
-    overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +24,12 @@
         --identity-color-toolbar: rgb(251,251,254);
         --tablist-separator: #333333;
     }
+}
+
+/* fix autoscrolling bug when middle clicking */
+:root,
+body {
+    overflow: hidden;
 }
 
 /* Move topmenu to bottom */
