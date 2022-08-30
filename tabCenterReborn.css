@@ -241,3 +241,21 @@ comment out the @media line below and its closing bracket */
         left: 16px !important;
     }
 }
+
+/* middle click newtab workaround */
+
+/* allows the #spacer element to take up more space */
+#spacer {
+    min-height: 100vh;
+}
+
+/* moves the new tab button to the original position */
+#tablist-wrapper {
+    margin-bottom: -100vh;
+}
+
+/* moves the separator to the original position */
+#tablist-wrapper::after {
+    transform: translateY(-100vh);
+}
+
