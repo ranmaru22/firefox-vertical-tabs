@@ -254,7 +254,7 @@ comment out the @media line below and its closing bracket */
     margin-bottom: -100vh;
 }
 
-/* moves the separator to the original position */
+/* moves the new tab button separator to the original position */
 #tablist-wrapper::after {
     transform: translateY(-100vh);
 }
