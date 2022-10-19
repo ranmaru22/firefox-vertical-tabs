@@ -11,7 +11,7 @@ It also plays nice with Container Tabs.
 [[./screenshots/macos.png]]
 
 ** Compatibility
-*Guarateed compatibility with Firefox 104.*
+*Guarateed compatibility with Firefox 107.*
 
 There has recently been in change in Firefox that requires the use of
 ~-moz-platform~ instead of ~-moz-os-version~ to use OS-specific CSS. This will work

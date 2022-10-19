@@ -258,9 +258,11 @@
     display: none;
 }
 
-[sidebarcommand*="tabcenter"] #sidebar {
+[sidebarcommand*="tabcenter"] #sidebar,
+#sidebar-box[sidebarcommand*="tabcenter"] {
     min-width: 48px !important;
     max-width: 48px !important;
+    width: 48px;
 }
 
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
