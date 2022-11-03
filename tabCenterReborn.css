@@ -3,6 +3,7 @@
     --tab-separator: transparent;
     --tab-selected-line: transparent;
     --tablist-separator: #cccccc;
+    --overflow-indicator-border: #333333;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +24,7 @@
         --input-text-focus: rgb(251,251,254);
         --identity-color-toolbar: rgb(251,251,254);
         --tablist-separator: #333333;
+        --overflow-indicator-border: #cccccc;
     }
 }
 
@@ -196,6 +198,32 @@ body {
     }
 }
 
+/* nicer icons for overflow */
+#topshadow, #bottomshadow {
+    box-shadow: none;
+    border: 1px solid transparent;
+}
+
+#topshadow::after, #bottomshadow::after {
+    content: "";
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    left: 50%;
+    background: transparent;
+    border-bottom: 1px solid var(--overflow-indicator-border);
+    border-right: 1px solid var(--overflow-indicator-border);
+}
+
+#topshadow::after {
+    top: 0;
+    transform: translateX(-50%) rotate(-135deg);
+}
+
+#bottomshadow::after {
+    bottom: 0;
+    transform: translateX(-50%) rotate(45deg);
+}
 
 /*** Better support for non-compact mode ***/
 #tablist-wrapper:not(.shrinked) .tab-meta-image {
@@ -262,4 +290,3 @@ comment out the @media line below and its closing bracket */
 #tablist-wrapper::after {
     transform: translateY(-100vh);
 }
-
