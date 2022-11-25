@@ -231,7 +231,7 @@
     }
 
     :root[inFullscreen] #nav-bar {
-        border-inline: none !important;
+        border-right: none !important;
     }
 }
 
