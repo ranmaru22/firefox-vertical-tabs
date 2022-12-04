@@ -4,6 +4,8 @@
     --transition-time: 0.2s;
     --positionX1: 48px; /* '48px' for left, '0px' for right sidebar */
     --positionX2: absolute; /* 'absolute' for left, 'none' for right sidebar */
+    /* width of the collapsed sidebar in fullscreen mode ('1px' or '48px') */
+    --fullscreen-sidebar-width: 1px;
 }
 
 /* macOS specific styles */
@@ -268,7 +270,6 @@
 #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
     display: block;
     position: var(--positionX2);
-    box-sizing: content-box;
     min-width: 48px;
     max-width: 48px;
     overflow: hidden;
@@ -278,9 +279,10 @@
     bottom: 0;
 }
 
-#main-window[inFullscreen] #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
-    min-width: 1px;
-    max-width: 1px;
+/* use :where() selector to lower specificity */
+:where(#main-window[inFullscreen]) #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
+    min-width: var(--fullscreen-sidebar-width) !important;
+    max-width: var(--fullscreen-sidebar-width) !important;
 }
 
 #sidebar-box[sidebarcommand*="tabcenter"]:hover #sidebar,
@@ -318,8 +320,8 @@
     margin-left: var(--positionX1);
 }
 
-#main-window[inFullscreen][inDOMFullscreen] #appcontent {
-    margin-left: 0;
+#main-window[inFullscreen] #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
+    margin-left: var(--fullscreen-sidebar-width);
 }
 
 #main-window[inFullscreen] #sidebar {

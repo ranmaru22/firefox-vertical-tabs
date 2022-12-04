@@ -38,6 +38,7 @@ free to submit a PR.
 - Create a file called ~userChrome.css~ inside the ~chrome~ folder.
 - Copy and paste the contents of ~userChrome.css~ into your file (or symlink it).
 - OPTIONAL: Adjust ~--delay~ setting in the ~userChrome.css~ file.
+- OPTIONAL: Adjust ~--fullscreen-sidebar-width~ setting in the ~userChrome.css~ file.
 - Install the [[https://addons.mozilla.org/en-US/firefox/addon/tabcenter-reborn/][Tab Center Reborn]] extension.
 - Make sure to enable /"Allow this extension to run in Private windows"/ so you're
   not left stranded while browsing.
@@ -58,5 +59,6 @@ free to submit a PR.
   general.
 - In Fullscreen mode, the sidebar will collapse to a 1px wide border instead to
   be as unintrusive as possible. You can expand it by pushing your cursor all
-  the way to the edge of the screen.
+  the way to the edge of the screen. This can be disabled by setting
+  ~--fullscreen-sidebar-width~ to ~48px~.
 - If your window controls are not correctly aligned, disable compact mode at =Customize toolbar...= menu.
