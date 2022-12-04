@@ -59,3 +59,4 @@ free to submit a PR.
 - In Fullscreen mode, the sidebar will collapse to a 1px wide border instead to
   be as unintrusive as possible. You can expand it by pushing your cursor all
   the way to the edge of the screen.
+- If your window controls are not correctly aligned, disable compact mode at =Customize toolbar...= menu.
