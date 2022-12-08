@@ -320,7 +320,7 @@
     margin-left: var(--positionX1);
 }
 
-#main-window[inFullscreen] #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
+#main-window[inFullscreen]:not([inDOMFullscreen]) #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) ~ #appcontent {
     margin-left: var(--fullscreen-sidebar-width);
 }
 
