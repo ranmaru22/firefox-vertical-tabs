@@ -206,7 +206,7 @@ body {
     mask: linear-gradient(black calc(100% - 40px), transparent);
 }
 .can-scroll-bottom.can-scroll-top #tablist {
-    mask: linear-gradient(transparent, black 30px calc(100% - 40px), transparent);
+    mask: linear-gradient(transparent, black 40px calc(100% - 40px), transparent);
 }
 #topshadow, #bottomshadow {
     display: none;
