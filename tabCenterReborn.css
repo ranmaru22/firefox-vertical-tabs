@@ -198,32 +198,20 @@ body {
     }
 }
 
-/* nicer icons for overflow */
+/* Use mask for overflow instead of shadows */
+.can-scroll-top #tablist {
+    mask: linear-gradient(transparent, black 40px);
+}
+.can-scroll-bottom #tablist {
+    mask: linear-gradient(black calc(100% - 40px), transparent);
+}
+.can-scroll-bottom.can-scroll-top #tablist {
+    mask: linear-gradient(transparent, black 30px calc(100% - 40px), transparent);
+}
 #topshadow, #bottomshadow {
-    box-shadow: none;
-    border: 1px solid transparent;
+    display: none;
 }
 
-#topshadow::after, #bottomshadow::after {
-    content: "";
-    width: 5px;
-    height: 5px;
-    position: absolute;
-    left: 50%;
-    background: transparent;
-    border-bottom: 1px solid var(--overflow-indicator-border);
-    border-right: 1px solid var(--overflow-indicator-border);
-}
-
-#topshadow::after {
-    top: 0;
-    transform: translateX(-50%) rotate(-135deg);
-}
-
-#bottomshadow::after {
-    bottom: 0;
-    transform: translateX(-50%) rotate(45deg);
-}
 
 /*** Better support for non-compact mode ***/
 #tablist-wrapper:not(.shrinked) .tab-meta-image {
