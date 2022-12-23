@@ -212,6 +212,11 @@ body {
     display: none;
 }
 
+/* Prevent showing scrollbar when adding/removing tabs */
+#tablist-wrapper:not(.can-scroll-bottom):not(.can-scroll-top) #tablist {
+    overflow: hidden;
+}
+
 /*** Prevent Favicon-only pinned tabs from wrapping ***/
 #pinnedtablist.compact {
     flex-wrap: nowrap;
