@@ -55,7 +55,7 @@ free to submit a PR.
 
 ** Things to note
 - If the sidebar does not show up, you can press =Shift-F1= to show the Tab
-  Center Reborn sidebar directy, or =Cmd-B= / =Ctrl-B= to toggle the sidebar in
+  Center Reborn sidebar directly, or =Cmd-B= / =Ctrl-B= to toggle the sidebar in
   general.
 - In Fullscreen mode, the sidebar will collapse to a 1px wide border instead to
   be as unintrusive as possible. You can expand it by pushing your cursor all
