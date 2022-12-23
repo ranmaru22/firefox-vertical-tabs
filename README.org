@@ -46,9 +46,12 @@ free to submit a PR.
   *Preferences* and set:
   - *Animations*: on.
   - *Use current browser theme*: on, if you want to use dark mode.
-  - *Compact Mode*: either "Dynamic" or "Enabled". It works with "Disabled" too
-    but looks nicer with only favicons.
-  - *Favicon-only pinned tabs*: off.
+  - *Compact Mode*: "Enabled" is recommended. It works with "Dynamic" or
+    "Disabled" too but looks nicer with only favicons.
+  - *Favicon-only pinned tabs*: Your choice. If set to "on", you will only have
+    one icon on the top of the collapsed bar and a row of icons in the expanded
+    state, with "off", they appear like normal tabs (one per row) with a pin
+    icon on the right. The mod works well with both settings,.
   - Activate *Custom Stylesheet* and paste the contents of ~tabCenterReborn.css~
     into the text area below, and click "Save CSS" under the text box.
 - Restart Firefox.
