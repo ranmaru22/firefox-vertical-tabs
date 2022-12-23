@@ -212,6 +212,26 @@ body {
     display: none;
 }
 
+/*** Prevent Favicon-only pinned tabs from wrapping ***/
+#pinnedtablist.compact {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 2px;
+}
+#pinnedtablist.compact:not(:hover):not(:focus-within) { /* Prevent scrollbar from showing when transitioning */
+    scrollbar-width: none;
+}
+#pinnedtablist.compact .tab {
+    min-width: 36px;
+}
+@media (max-width: 48px) {
+    #pinnedtablist.compact {
+        overflow-x: clip /* Clip always makes it reset scroll position */
+    }
+    #pinnedtablist.compact .tab.active {
+        order: -1
+    }
+}
 
 /*** Better support for non-compact mode ***/
 #tablist-wrapper:not(.shrinked) .tab-meta-image {
