@@ -29,6 +29,11 @@
 
 /* Linux/GTK specific styles */
 @media (-moz-gtk-csd-available) {
+    .browser-toolbar:not(.titlebar-color){ /* Fixes wrong coloring applied with --toolbar-bgcolor by Firefox (#101) */
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
     #TabsToolbar:not([customizing="true"]) {
         visibility: collapse !important;
     }
