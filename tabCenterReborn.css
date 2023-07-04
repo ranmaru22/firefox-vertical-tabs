@@ -107,7 +107,7 @@ body {
 }
 
 #newtab::after {
-    content: "New tab";
+    content: attr(title);
     margin-left: 10px;
     white-space: nowrap;
     overflow: hidden;
