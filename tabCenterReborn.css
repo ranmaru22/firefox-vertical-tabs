@@ -92,9 +92,17 @@ body {
     background: transparent;
 }
 
-.tab:not(.active):hover .tab-drag-overlay {
+.tab .tab-drag-overlay {
     border-radius: 4px;
+    z-index: -1;
+}
+
+.tab:not(.active):hover .tab-drag-overlay {
     background-color: var(--tab-hover-background);
+}
+
+.tab.active .tab-drag-overlay {
+    background-color: var(--tab-active-background);
 }
 
 #pinnedtablist:not(.compact) .tab.drag-highlight-next,
