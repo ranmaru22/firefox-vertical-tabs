@@ -84,16 +84,31 @@ body {
     width: 100%;
 }
 
-.tab,
-.tab.active {
-    border-radius: 4px;
-    border-bottom: none !important;
-    margin: 1px 0;
-}
-
 #pinnedtablist:not(.compact) .tab,
 #tablist .tab {
     padding: 0;
+    border: 0 solid transparent;
+    margin: 0;
+    background: transparent;
+}
+
+.tab:not(.active):hover .tab-drag-overlay {
+    border-radius: 4px;
+    background-color: var(--tab-hover-background);
+}
+
+#pinnedtablist:not(.compact) .tab.drag-highlight-next,
+#tablist .tab.drag-highlight-next {
+    border-bottom-width: var(--tab-height-compact);
+    height: calc(var(--tab-height-compact) * 2) !important;
+    max-height: calc(var(--tab-height-normal) + var(--tab-height-compact)) !important;
+}
+
+#pinnedtablist:not(.compact) .tab.drag-highlight-previous,
+#tablist .tab.drag-highlight-previous {
+    border-top-width: var(--tab-height-compact);
+    height: calc(var(--tab-height-compact) * 2) !important;
+    max-height: calc(var(--tab-height-normal) + var(--tab-height-compact)) !important;
 }
 
 #pinnedtablist:not(.compact) .tab:before,
