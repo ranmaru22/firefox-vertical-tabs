@@ -191,7 +191,7 @@
         visibility: hidden !important;
     }
     /* Line up the Windows controls with the rest of the icons in the toolbar. */
-    .titlebar-buttonbox-container {
+    :root:not([sizemode="maximized"]) .titlebar-buttonbox-container {
         margin-top: 3px;
     }
 
