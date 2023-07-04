@@ -96,6 +96,16 @@ body {
     padding: 0;
 }
 
+#pinnedtablist:not(.compact) .tab:before,
+#tablist .tab:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -6px;
+    width: 6px;
+}
+
 #newtab::after {
     content: "New tab";
     margin-left: 10px;
