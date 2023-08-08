@@ -1,22 +1,25 @@
-name: Minify CSS
+name: Publish
+
 on:
-    push:
-        branches: [main]
+  push:
+    tags:
+      - '*'
 
 jobs:
     Minify-CSS:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-              with:
-                token: ${{ secrets.PAT }}
             - name: Auto Minify
               uses: nizarmah/auto-minify@v2.1.1
               with:
                 output: 'minified'
-            - name: Recommit minified files
-              uses: stefanzweifel/git-auto-commit-action@v4
+            - name: Archive files
+              run: zip -r -q minified.zip minified
+            - name: Upload minified files to release
+              uses: svenstaro/upload-release-action@v2
               with:
-                repository: 'minified'
-                commit_message: "ci: Auto-add minified CSS files"
-                branch: ${{ github.ref }}
+                repo_token: ${{ secrets.GITHUB_TOKEN }}
+                file: minified.zip
+                tag: ${{ github.ref }}
+                overwrite: true
