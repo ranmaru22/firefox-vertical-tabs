@@ -1,6 +1,6 @@
 name: Minify CSS
 on:
-    pull_request:
+    push:
         branches: [main]
 
 jobs:
