@@ -29,6 +29,18 @@ because the window decorations look different. I can't test this because I don't
 have a Windows computer, but if you find any bugs and know how to fix it, feel
 free to submit a PR.
 
+** Minified files
+Starting with version 6.0, the releases include minified versions of both CSS
+documents. This is because the CSS will exceed the storage quota for web
+extensions otherwise as it has grown quite large (see issue #116).
+
+The minified files are included in =minified.zip= which is automatically attached
+to each release by a workflow action, staring with v6.0. To use those files,
+download this zip, unpack it, and use the =userChrome.min.css= and
+=tabCenteReborn.min.css= in place of the normal files. Note that you do have to
+renmame the userChrome file to =userChrome.css= (or symlink it) so that Firefox
+recognizes it.
+
 ** How to install
 - Go to ~about:config~ in your URL bar, search for
   ~toolkit.legacyUserProfileCustomizations.stylesheets~ and set it to ~true~.
@@ -37,6 +49,8 @@ free to submit a PR.
 - If there is no ~chrome~ folder, create it.
 - Create a file called ~userChrome.css~ inside the ~chrome~ folder.
 - Copy and paste the contents of ~userChrome.css~ into your file (or symlink it).
+- ALTERNATIVELY: Copy and paste the contents of ~userChrome.min.css~ from the
+  minified version into that file (#116).
 - OPTIONAL: Adjust ~--delay~ setting in the ~userChrome.css~ file.
 - OPTIONAL: Adjust ~--fullscreen-sidebar-width~ setting in the ~userChrome.css~ file.
 - Install the [[https://addons.mozilla.org/en-US/firefox/addon/tabcenter-reborn/][Tab Center Reborn]] extension.
@@ -54,6 +68,8 @@ free to submit a PR.
     icon on the right. The mod works well with both settings,.
   - Activate *Custom Stylesheet* and paste the contents of ~tabCenterReborn.css~
     into the text area below, and click "Save CSS" under the text box.
+  - ALTERNATIVELY: Paste the contents of ~tabCenterReborn.min.css~ from the
+    minified version into the area (#116).
 - Restart Firefox.
 
 ** Things to note
