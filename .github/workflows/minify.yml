@@ -1,0 +1,20 @@
+name: Minify CSS
+on:
+    push:
+        branches: main
+
+jobs:
+    Minify-CSS:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Auto Minify
+              uses: nizarmah/auto-minify@v2.1.1
+              with:
+                output: 'minified'
+            - name: Recommit minified files
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                repository: 'minified'
+                commit_message: "ci: Auto-add minified CSS files"
+                branch: ${{ github.ref }}
