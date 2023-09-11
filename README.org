@@ -11,7 +11,7 @@ It also plays nice with Container Tabs.
 [[./screenshots/macos.png]]
 
 ** Compatibility
-*Guarateed compatibility with Firefox 107.*
+*Tested compatibility with up to Firefox 118.*
 
 There has recently been in change in Firefox that requires the use of
 ~-moz-platform~ instead of ~-moz-os-version~ to use OS-specific CSS. This will work
@@ -41,6 +41,13 @@ download this zip, unpack it, and use the =userChrome.min.css= and
 renmame the userChrome file to =userChrome.css= (or symlink it) so that Firefox
 recognizes it.
 
+*Warning: It seems you HAVE to use the minified version of =tabCenterReborn.css=
+at least, otherwise you will run into issues because of a huge payload. If you
+want to hack on this mod, selectively remove code you don't need until you have
+a working version.*
+
+Unfortunately that's currently the only way.
+
 ** How to install
 - Go to ~about:config~ in your URL bar, search for
   ~toolkit.legacyUserProfileCustomizations.stylesheets~ and set it to ~true~.
@@ -66,10 +73,11 @@ recognizes it.
     one icon on the top of the collapsed bar and a row of icons in the expanded
     state, with "off", they appear like normal tabs (one per row) with a pin
     icon on the right. The mod works well with both settings,.
-  - Activate *Custom Stylesheet* and paste the contents of ~tabCenterReborn.css~
-    into the text area below, and click "Save CSS" under the text box.
-  - ALTERNATIVELY: Paste the contents of ~tabCenterReborn.min.css~ from the
-    minified version into the area (#116).
+  - Activate *Custom Stylesheet* and paste the contents of ~tabCenterReborn.min.css~
+    from the minified download into the text area below, and click "Save CSS"
+    under the text box. If you don't want to use the minified version, you need
+    to remove some code manually, otherwise Firefox will complain about too
+    large a payload and ignore the CSS completely (see issue #116).
 - Restart Firefox.
 
 ** Things to note
