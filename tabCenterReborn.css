@@ -69,7 +69,8 @@ body {
     flex-direction: column;
 }
 
-#tablist-wrapper::after {
+#tablist-wrapper::after,
+#pinnedtablist:not(.compact):has(*)::after {
     content: "";
     margin: 2px 0;
     border: 1px solid var(--tablist-separator);
