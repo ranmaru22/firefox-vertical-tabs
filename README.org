@@ -1,7 +1,6 @@
 * Firefox Vertical Tabs
-Vertical tabs for Firefox, inspired by Edge. Works with Light theme, Dark theme,
-and System theme (auto dark mode). There are some minor glitches with Alpenglow
-but they should be easy to fix.
+
+Vertical tabs for Firefox, inspired by Edge. Works with Light theme, Dark theme, and System theme (auto dark mode). There are some minor glitches with Alpenglow, but they should be easy to fix.
 
 It also plays nice with Container Tabs.
 
@@ -11,81 +10,45 @@ It also plays nice with Container Tabs.
 [[./screenshots/macos.png]]
 
 ** Compatibility
-*Tested compatibility with up to Firefox 118.*
+*Tested compatibility with up to Firefox 121.*
 
-There has recently been in change in Firefox that requires the use of
-~-moz-platform~ instead of ~-moz-os-version~ to use OS-specific CSS. This will work
-from 99.0b1 upwards but might not on older versions, so be aware of that. If you
-run an older version of Firefox and have an issue, change this back.
+There has recently been in change in Firefox that requires the use of ~-moz-platform~ instead of ~-moz-os-version~ to use OS-specific CSS. This will work from 99.0b1 upwards but might not on older versions, so be aware of that. If you run an older version of Firefox and have an issue, change this back.
 
-(Also, since the only OS-specific CSS in the file targets Windows, it should not
-affect you on Mac or Linux either way.)
+(Also, since the only OS-specific CSS in the file targets Windows, it should not affect you on Mac or Linux either way.)
 
-It should work on newer versions as well unless there's any breaking changes in
-how ~userChrome.css~ works.
+It should work on newer versions as well unless there's any breaking changes in how ~userChrome.css~ works.
 
-I have only tested this for Linux and macOS. There might be some bugs on Windows
-because the window decorations look different. I can't test this because I don't
-have a Windows computer, but if you find any bugs and know how to fix it, feel
-free to submit a PR.
+I have only tested this for Linux and macOS. There might be some bugs on Windows because the window decorations look different. I can't test this because I don't have a Windows computer, but if you find any bugs and know how to fix it, feel free to submit a PR.
 
 ** Minified files
-Starting with version 6.0, the releases include minified versions of both CSS
-documents. This is because the CSS will exceed the storage quota for web
-extensions otherwise as it has grown quite large (see issue #116).
+Starting with version 6.0, the releases include minified versions of both CSS documents. This is because the CSS will exceed the storage quota for web extensions otherwise as it has grown quite large (see issue #116).
 
-The minified files are included in =minified.zip= which is automatically attached
-to each release by a workflow action, staring with v6.0. To use those files,
-download this zip, unpack it, and use the =userChrome.min.css= and
-=tabCenteReborn.min.css= in place of the normal files. Note that you do have to
-renmame the userChrome file to =userChrome.css= (or symlink it) so that Firefox
-recognizes it.
+*WARNING: You HAVE to use the minified version of =tabCenterReborn.css= at least, otherwise you will run into issues because of a huge payload. Alternatively you have to remove lines of code from the payload until it works.*
 
-*Warning: It seems you HAVE to use the minified version of =tabCenterReborn.css=
-at least, otherwise you will run into issues because of a huge payload. If you
-want to hack on this mod, selectively remove code you don't need until you have
-a working version.*
+The minified files are included in =minified.zip= which is automatically attached to each release by a workflow action, staring with v6.0. To use those files, download this zip, unpack it, and use the =userChrome.min.css= and =tabCenteReborn.min.css= in place of the normal files. Note that you do have to rename the userChrome file to =userChrome.css= (or symlink it) so that Firefox recognizes it.
 
 Unfortunately that's currently the only way.
 
 ** How to install
-- Go to ~about:config~ in your URL bar, search for
-  ~toolkit.legacyUserProfileCustomizations.stylesheets~ and set it to ~true~.
-- Go to ~about:profiles~ in your URL bar, click /"Open Directory"/ next to your Root
-  Directory under your default profile.
+- Go to ~about:config~ in your URL bar, search for ~toolkit.legacyUserProfileCustomizations.stylesheets~ and set it to ~true~.
+- Go to ~about:profiles~ in your URL bar, click /"Open Directory"/ next to your Root Directory under your default profile.
 - If there is no ~chrome~ folder, create it.
 - Create a file called ~userChrome.css~ inside the ~chrome~ folder.
 - Copy and paste the contents of ~userChrome.css~ into your file (or symlink it).
-- ALTERNATIVELY: Copy and paste the contents of ~userChrome.min.css~ from the
-  minified version into that file (#116).
+- ALTERNATIVELY: Copy and paste the contents of ~userChrome.min.css~ from the minified version into that file (#116).
 - OPTIONAL: Adjust ~--delay~ setting in the ~userChrome.css~ file.
 - OPTIONAL: Adjust ~--fullscreen-sidebar-width~ setting in the ~userChrome.css~ file.
 - Install the [[https://addons.mozilla.org/en-US/firefox/addon/tabcenter-reborn/][Tab Center Reborn]] extension.
-- Make sure to enable /"Allow this extension to run in Private windows"/ so you're
-  not left stranded while browsing.
-- Go to ~about:addons~ in your URL bar, select *Tab Center Reborn*, go to
-  *Preferences* and set:
+- Make sure to enable /"Allow this extension to run in Private windows"/ so you're not left stranded while browsing.
+- Go to ~about:addons~ in your URL bar, select *Tab Center Reborn*, go to *Preferences* and set:
   - *Animations*: on.
   - *Use current browser theme*: on, if you want to use dark mode.
-  - *Compact Mode*: "Enabled" is recommended. It works with "Dynamic" or
-    "Disabled" too but looks nicer with only favicons.
-  - *Favicon-only pinned tabs*: Your choice. If set to "on", you will only have
-    one icon on the top of the collapsed bar and a row of icons in the expanded
-    state, with "off", they appear like normal tabs (one per row) with a pin
-    icon on the right. The mod works well with both settings,.
-  - Activate *Custom Stylesheet* and paste the contents of ~tabCenterReborn.min.css~
-    from the minified download into the text area below, and click "Save CSS"
-    under the text box. If you don't want to use the minified version, you need
-    to remove some code manually, otherwise Firefox will complain about too
-    large a payload and ignore the CSS completely (see issue #116).
+  - *Compact Mode*: "Enabled" is recommended. It works with "Dynamic" or "Disabled" too but looks nicer with only favicons.
+  - *Favicon-only pinned tabs*: Your choice. If set to "on", you will only have one icon on the top of the collapsed bar and a row of icons in the expanded state, with "off", they appear like normal tabs (one per row) with a pin icon on the right and a separator bar between pinned and normal tabs. The mod works well with both settings.
+  - Activate *Custom Stylesheet* and paste the contents of ~tabCenterReborn.min.css~ from the minified download into the text area below, and click "Save CSS" under the text box. If you don't want to use the minified version, you need to remove some code manually, otherwise Firefox will complain about too large a payload and ignore the CSS completely (see issue #116).
 - Restart Firefox.
 
 ** Things to note
-- If the sidebar does not show up, you can press =Shift-F1= to show the Tab
-  Center Reborn sidebar directly, or =Cmd-B= / =Ctrl-B= to toggle the sidebar in
-  general.
-- In Fullscreen mode, the sidebar will collapse to a 1px wide border instead to
-  be as unintrusive as possible. You can expand it by pushing your cursor all
-  the way to the edge of the screen. This can be disabled by setting
-  ~--fullscreen-sidebar-width~ to ~48px~.
+- If the sidebar does not show up, you can press =Shift-F1= to show the Tab Center Reborn sidebar directly, or =Cmd-B= / =Ctrl-B= to toggle the sidebar in general.
+- In Fullscreen mode, the sidebar will collapse to a 1px wide border instead to be as unintrusive as possible. You can expand it by pushing your cursor all the way to the edge of the screen. This can be disabled by setting ~--fullscreen-sidebar-width~ to ~48px~.
 - If your window controls are not correctly aligned, disable compact mode at =Customize toolbar...= menu.
