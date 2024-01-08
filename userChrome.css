@@ -15,7 +15,7 @@
     }
 
     :root:not([customizing="true"]) #nav-bar:not([inFullscreen]) {
-        padding-left: 80px;
+        padding-left: 80px !important;
     }
 
     :root:not([customizing="true"]) #TabsToolbar .titlebar-buttonbox-container {
@@ -28,7 +28,7 @@
 }
 
 /* Linux/GTK specific styles */
-@media (-moz-gtk-csd-available), 
+@media (-moz-gtk-csd-available),
        (-moz-platform: linux) {
     .browser-toolbar:not(.titlebar-color){ /* Fixes wrong coloring applied with --toolbar-bgcolor by Firefox (#101) */
         background-color: transparent !important;
@@ -127,14 +127,14 @@
             }
         }
     }
-    
+
     /* Hide window buttons in fullscreen */
     #navigator-toolbox[style*="margin-top: -"] .titlebar-buttonbox-container,
     [inDOMFullscreen="true"] .titlebar-buttonbox-container {
         transform: translateY(-100px)
     }
-    
-    
+
+
 }
 
 /* Windows specific styles */
@@ -154,26 +154,26 @@
         padding-top: .5px !important; /* This makes it possible to drag the maximized window. */
         margin-left: -80px; /* Removes the space left when hiding .titlebar-buttonbox-container */
     }
-    
-    #back-button { 
-		margin-top: -.5px !important; 
-	}
-	
-	#forward-button { 
-		margin-top: -.5px !important; 
-	}
-	
-	#reload-button { 
-		margin-top: -.5px !important; 
-	}
-    
-	#PanelUI-button {
-		margin-top: -.5px !important; 
-	}
-    
-	#nav-bar-overflow-button{
-		margin-top: -.5px !important; 
-	}
+
+    #back-button {
+        margin-top: -.5px !important;
+    }
+
+    #forward-button {
+        margin-top: -.5px !important;
+    }
+
+    #reload-button {
+        margin-top: -.5px !important;
+    }
+
+    #PanelUI-button {
+        margin-top: -.5px !important;
+    }
+
+    #nav-bar-overflow-button{
+        margin-top: -.5px !important;
+    }
 
     :root {
         --uc-toolbar-height: 32px;
