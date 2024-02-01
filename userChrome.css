@@ -274,7 +274,7 @@
 }
 
 #main-window:not([chromehidden~="toolbar"]) [sidebarcommand*="tabcenter"] #sidebar,
-#main-window:not([chromehidden~="toolbar"]) #sidebar-box[sidebarcommand*="tabcenter"] {
+#main-window:not([chromehidden~="toolbar"]) #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden="true"]) {
     display: block !important;
     min-width: 48px !important;
     max-width: 48px !important;
