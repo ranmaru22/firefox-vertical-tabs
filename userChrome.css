@@ -211,14 +211,20 @@
 
     /* For a rounded button design, uncomment both lines in .titlebar-buttonbox. */
     .titlebar-buttonbox {
-        z-index:3 !important;
+        z-index: 3 !important;
         /* padding-right:3px; */
     }
 
     .titlebar-buttonbox * {
         /* border-radius: 5px; */
-        width:35px;
-        height:38px;
+        width: 35px;
+        height: 38px;
+        pointer-events: auto;
+    }
+
+    #titlebar {
+        z-index: 3;
+        pointer-events: none;
     }
 
     #main-menubar {
