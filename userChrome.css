@@ -366,3 +366,9 @@
         display: none !important;
     }
 }
+
+/* Up the z-index of the top bar so that the bookmarks toolbar is above the sidebar. */
+#navigator-toolbox {
+    z-index: 2 !important;
+}
+
