@@ -293,8 +293,7 @@
     bottom: 0;
 }
 
-/* use :where() selector to lower specificity */
-:where(#main-window[inFullscreen]:not([chromehidden~="toolbar"])) #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]) {
+#main-window[inFullscreen]:not([chromehidden~="toolbar"]) #sidebar-box[sidebarcommand*="tabcenter"]:not([hidden]):not(:hover) {
     min-width: var(--fullscreen-sidebar-width) !important;
     max-width: var(--fullscreen-sidebar-width) !important;
 }
@@ -371,4 +370,3 @@
 #navigator-toolbox {
     z-index: 2 !important;
 }
-
