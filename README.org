@@ -10,7 +10,7 @@ It also plays nice with Container Tabs.
 [[./screenshots/macos.png]]
 
 ** Compatibility
-*Tested compatibility with up to Firefox 121.*
+*Tested compatibility with up to Firefox 124.*
 
 There has recently been in change in Firefox that requires the use of ~-moz-platform~ instead of ~-moz-os-version~ to use OS-specific CSS. This will work from 99.0b1 upwards but might not on older versions, so be aware of that. If you run an older version of Firefox and have an issue, change this back.
 
