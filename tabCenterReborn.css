@@ -59,6 +59,9 @@ body {
 #tablist-wrapper {
     height: auto;
     margin-inline: 6px;
+    margin-right: 2px;
+    padding-right: 4px;
+    border-right: 1px solid var(--tablist-separator);
     /* adds margin above tabs to make the spacing even */
     margin-top: 5px;
 }
