@@ -43,6 +43,11 @@
         padding-top: 0px !important;
     }
 
+    /* Fixes issue in FF 123 where minimize, close, and maximize buttons no longer work. */
+    :root[tabsintitlebar] #titlebar {
+        will-change: auto !important;
+    }
+
     :root:not([customizing="true"]) #toolbar-menubar[inactive]+#TabsToolbar .titlebar-buttonbox-container {
         visibility: visible !important;
         position: absolute;
